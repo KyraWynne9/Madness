@@ -1,3 +1,4 @@
+
 function GameObject(obj)
 {	
 		this.x = canvas.width/2;
@@ -77,10 +78,10 @@ function GameObject(obj)
 		return {x:this.x , y:this.y + this.height/2}
 	}
 	this.bottomRight = function() {
-		return {x: this.x + this.width/2, y:this.y + this.height/2}
+		return {x: this.x, y:this.y}
 	}
 	this.bottomLeft = function() {
-		return {x: this.x - this.width/2, y:this.y + this.height/2}
+		return {x: this.x, y:this.y}
 	}
 	
 	this.hitTestObject = function(obj)
@@ -88,9 +89,9 @@ function GameObject(obj)
 		if(this.left().x <= obj.right().x && 
 		   this.right().x >= obj.left().x &&
 		   this.top().y <= obj.bottom().y &&
-		   this.bottom().y >= obj.top().y &&
-			this.bottomRight().y <= obj.bottomRight().y &&
-			this.bottomLeft().y <= obj.bottomLeft().y
+		   this.bottom().y >= obj.top().y 
+			//this.bottomRight().y >= obj.bottomRight().y.x &&
+			//this.bottomLeft().y <= obj.bottomLeft().y.x
 			)
 		{
 			return true
@@ -104,9 +105,9 @@ function GameObject(obj)
 		if(obj.x >= this.left().x && 
 		   obj.x <= this.right().x &&
 		   obj.y >= this.top().y &&  
-		   obj.y <= this.bottom().y &&
-			obj.y <= this.bottomRight().y &&
-			obj.y <= this.bottomLeft().y
+		   obj.y <= this.bottom().y 
+			//obj.y >= this.bottomRight().y &&
+			//obj.y <= this.bottomLeft().y
 			)
 		{
 			return true;
@@ -131,8 +132,6 @@ function GameObject(obj)
 		context.fillRect(this.top().x-size/2, this.top().y-size/2, size, size);
 		context.fillRect(this.bottom().x-size/2, this.bottom().y-size/2, size, size);
 		context.fillRect(this.bottomRight().x-size/2, this.bottomRight().y-size/2, size, size);
-		context.fillRect(this.bottom().x-size/2, this.bottom().y-size/2, size, size);
-		context.fillRect(this.bottomLeft().x-size/2, this.bottomLeft().y-size/2, size, size);
 		context.fillRect(this.x-size/2, this.y-size/2, size, size);
 		context.restore();
 	}

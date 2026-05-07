@@ -64,13 +64,7 @@ function animate()
 	
 	player.x += Math.round(player.vx);
 	player.y += Math.round(player.vy);
-
-	if(player.y - player.width/2 > canvas.height){
-        player.vy = -player.vy;
-		player.x = 70
-		player.y = 150
-		player.vy = gravity;
-    }
+	
 
 	while(platform0.hitTestPoint(player.bottom()) && player.vy >=0)
 	{
@@ -118,32 +112,20 @@ function animate()
 				You simply need to change the values of the x and y properties of the object literals listed below to find the solution.
 	*/
 
-	while(platform0.hitTestPoint(player.bottomRight()) && player.vy >=0)
+	while(platform0.hitTestPoint({x:player.right(), y:player.bottom()}) && player.vy >=0)
 	{
-		player.y--;
+		player.y;
 		player.vy = 0;
 		player.canJump = true;
-	}
-
-	while(platform1.hitTestPoint(player.bottomRight()) && player.vy >=0)
-	{
-		player.y--;
-		player.vy = 0;
-		player.canJump = true;
+		this.drawDebug();
 	}
 	
-	while(platform0.hitTestPoint(player.bottomLeft()) && player.vy >=0)
+	while(platform1.hitTestPoint({x:player.left(), y:player.bottom()}) && player.vy <=0)
 	{
-		player.y--;
+		player.y;
 		player.vy = 0;
 		player.canJump = true;
-	}
-
-	while(platform1.hitTestPoint(player.bottomLeft()) && player.vy >=0)
-	{
-		player.y--;
-		player.vy = 0;
-		player.canJump = true;
+		this.drawDebug();
 	}
 	
 	if(player.hitTestObject(goal))
@@ -160,3 +142,4 @@ function animate()
 	
 	goal.drawCircle();
 }
+
