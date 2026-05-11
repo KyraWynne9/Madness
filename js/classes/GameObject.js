@@ -3,8 +3,8 @@ function GameObject(obj)
 {	
 		this.x = canvas.width/2;
 		this.y = canvas.height/2;
-		this.width = 100;
-		this.height = 100;
+		this.width = 75;
+		this.height = 75;
 		this.color = "#ff0000";
 		this.force = 1;
 		this.ax = 1;

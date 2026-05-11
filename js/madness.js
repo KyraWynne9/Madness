@@ -13,9 +13,10 @@ var player;
 	player = new GameObject({x:150});
 
 	platform0 = new GameObject();
-		platform0.width = 150;
+		platform0.width = canvas.width
+        platform0.height = 20;
 		platform0.x = platform0.width/2;
-		platform0.y = player.y +player.height/2 + platform0.height/2;
+		platform0.y = player.y +player.height/2 + platform0.height/2 + 175;
 		platform0.color = "#66ff33";
 		
 	
@@ -135,11 +136,11 @@ function animate()
 
 	
 	platform0.drawRect();
-	platform1.drawRect();
+	//platform1.drawRect();
 
 	player.drawRect();
 	player.drawDebug();
 	
-	goal.drawCircle();
+	//goal.drawCircle();
 }
 
