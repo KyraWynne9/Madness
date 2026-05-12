@@ -5,7 +5,7 @@ function GameObject(obj)
 		this.y = canvas.height/2;
 		this.width = 75;
 		this.height = 75;
-		this.color = "#ff0000";
+		this.color = "#134643";
 		this.force = 1;
 		this.ax = 1;
 		this.ay = 1;

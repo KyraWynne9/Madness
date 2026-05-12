@@ -5,6 +5,7 @@ var context;
 var timer;
 var interval;
 var player;
+var thorn;
 
 
 	canvas = document.getElementById("canvas");
@@ -17,7 +18,7 @@ var player;
         platform0.height = 20;
 		platform0.x = platform0.width/2;
 		platform0.y = player.y +player.height/2 + platform0.height/2 + 175;
-		platform0.color = "#66ff33";
+		platform0.color = "#244968";
 		
 	
 	platform1 = new GameObject();
@@ -28,7 +29,7 @@ var player;
 
     thorn = new GameObject();
         thorn.width = 25
-        thorn,height = 25
+        thorn,height = 15
         thorn.x = canvas.width/2;
         thorn.y = canvas.height/2
         thorn.color = "#67ebfc"
@@ -125,7 +126,6 @@ function animate()
 	{
 		goal.y = 100000;
 	}
-
 	
 	platform0.drawRect();
 	//platform1.drawRect();
