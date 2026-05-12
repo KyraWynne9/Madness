@@ -51,6 +51,20 @@ function GameObject(obj)
 		context.restore();
 		
 	}	
+
+	this.drawTriangle = function() {
+
+		context.save();
+		context.fillStyle = this.color;
+		context.beginPath();
+		context.translate(this.x, this.y);
+		context.moveTo(this.x, this.y);   // First point (x1, y1)
+  		context.lineTo(this.x, this.y);   // Second point (x2, y2)
+  		context.lineTo(this.x, this.y);  // Third point (x3, y3)
+  		context.closePath();
+		context.fill();
+	context.restore();
+	}
 	
 	this.move = function()
 	{

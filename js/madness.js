@@ -25,6 +25,13 @@ var player;
 		platform1.x = canvas.width -platform1.width/2;
 		platform1.y = player.y +player.height/2 + platform1.height/2;
 		platform1.color = "#66ff33";
+
+    thorn = new GameObject();
+        thorn.width = 25
+        thorn,height = 25
+        thorn.x = canvas.width/2;
+        thorn.y = canvas.height/2
+        thorn.color = "#67ebfc"
 		
 	
 	goal = new GameObject({width:24, height:50, x:platform1.x + 100, y:platform1.y-100, color:"#00ffff"});
