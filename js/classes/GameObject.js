@@ -52,18 +52,21 @@ function GameObject(obj)
 		
 	}	
 
-	this.drawTriangle = function() {
-
-		context.save();
-		context.fillStyle = this.color;
-		context.beginPath();
-		context.translate(this.x, this.y);
-		context.moveTo(this.x, this.y);   // First point (x1, y1)
-  		context.lineTo(this.x, this.y);   // Second point (x2, y2)
-  		context.lineTo(this.x, this.y);  // Third point (x3, y3)
-  		context.closePath();
-		context.fill();
-	context.restore();
+	this.drawTriangle = function()
+	{
+			context.save();
+			context.fillStyle = this.color;
+			context.translate(this.x + this.world.x, this.y + this.world.y);
+			//To convert deg to rad multiply deg * Math.PI/180
+			context.rotate(this.angle * Math.PI/180);
+			context.beginPath();
+			context.moveTo(0+ this.width/2, 0);
+			context.lineTo(0 - this.width/2, 0 - this.height/2);
+			context.lineTo(0 - this.width/2, 0 + this.height/2);
+			context.closePath();
+			context.fill();
+		context.restore();
+		
 	}
 	
 	this.move = function()
