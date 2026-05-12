@@ -116,7 +116,7 @@ function animate()
 	
 	player.x += Math.round(player.vx);
 	player.y += Math.round(player.vy);
-	demon.y += Math.round(player.vy);
+	demon.y += Math.round(demon.vy);
 	
 
 	while(platform0.hitTestPoint(player.bottom()) && player.vy >=0)
