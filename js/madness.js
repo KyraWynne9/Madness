@@ -54,6 +54,18 @@ var dir = {x:1,y:0};
 	
 	var gravity = 1;
 
+	var myTimer= setInterval(myTimer, 1000);
+	var time = 0;
+
+	function myTimer() { 
+	time++; 
+	document.getElementById("timer").innerHTML = time;
+	}
+
+	function stopTimer() { 
+	clearInterval(myTimer);
+	}
+
 	interval = 1000/60;
 	timer = setInterval(animate, interval);
 
@@ -168,6 +180,11 @@ function animate()
 		demon.y = 100000;
 	}
 	}
+
+	ctx.font = "20px Oblique";
+   let timerText = `${visualTimer}`;
+   let textWidth = ctx.measureText(timerText);
+   ctx.fillText(timerText, canvas.width/2 - textWidth.width/2, 50);
 
 	
 	platform0.drawRect();
