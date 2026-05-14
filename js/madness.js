@@ -59,18 +59,29 @@ var dir = {x:1,y:0};
 	
 	var gravity = 1;
 
-	var myTimer= setInterval(myTimer, 1000);
-	var time = 0;
+	//var myTimer= setInterval(myTimer, 1000);
+	var time = 1800;
 	var visualTimer = myTimer
+	var min;
+	var sec;
+	var secfixed; 
+	var minfixed;
+
+	setInterval(myTimer,1000);
 
 	function myTimer() { 
-	time++; 
-	document.getElementById("timer").innerHTML = time;
+		time--; 
+		min = time/600;
+		sec = time%60;
+		minfixed = min.toFixed(0);
+		secfixed = sec.toFixed(2);
+		console.log(secfixed);
+		
 	}
 
-	function stopTimer() { 
-	clearInterval(myTimer);
-	}
+	// function stopTimer() { 
+	// clearInterval(myTimer);
+	// }
 
 	interval = 1000/60;
 	timer = setInterval(animate, interval);
@@ -189,9 +200,9 @@ function animate()
 	}
 
 	context.font = "20px Oblique";
-   let timerText = `${visualTimer}`;
-   let textWidth = context.measureText(timerText);
-   context.fillText(timerText, canvas.width/2 - textWidth.width/2, 50);
+   //let timerText = `${visualTimer}`;
+   //let textWidth = context.measureText(timerText);
+   //context.fillText(timerText, canvas.width/2 - textWidth.width/2, 50);
 
 	
 	platform0.drawRect();
@@ -201,6 +212,10 @@ function animate()
 
 	//goal.drawCircle();
 	demon.drawRect();
+	context.fillStyle = "black";
+	//context.font = "30px Arial"
+	console.log(secfixed)
+	context.fillText(`${minfixed}:`+ secfixed, canvas.width/2, 40);
 }
 
 
