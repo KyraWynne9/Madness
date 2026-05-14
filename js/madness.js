@@ -20,6 +20,10 @@ var dir = {x:1,y:0};
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
+	let pencil = canvas.getContext("2d");
+	pencil.imageSmoothingEnabled = false
+
+	let state = "start"
 
 	player = new GameObject({x:canvas.width/2 + 175});
 
@@ -71,6 +75,7 @@ var dir = {x:1,y:0};
 	interval = 1000/60;
 	timer = setInterval(animate, interval);
 
+	
 function animate()
 {
 	
@@ -197,4 +202,5 @@ function animate()
 	//goal.drawCircle();
 	demon.drawRect();
 }
+
 
