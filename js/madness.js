@@ -17,6 +17,7 @@ var dir = {x:1,y:0};
 
 
 
+
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 
@@ -56,6 +57,7 @@ var dir = {x:1,y:0};
 
 	var myTimer= setInterval(myTimer, 1000);
 	var time = 0;
+	var visualTimer = myTimer
 
 	function myTimer() { 
 	time++; 
@@ -181,10 +183,10 @@ function animate()
 	}
 	}
 
-	ctx.font = "20px Oblique";
+	context.font = "20px Oblique";
    let timerText = `${visualTimer}`;
-   let textWidth = ctx.measureText(timerText);
-   ctx.fillText(timerText, canvas.width/2 - textWidth.width/2, 50);
+   let textWidth = context.measureText(timerText);
+   context.fillText(timerText, canvas.width/2 - textWidth.width/2, 50);
 
 	
 	platform0.drawRect();
