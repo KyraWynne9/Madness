@@ -25,23 +25,55 @@ var dir = {x:1,y:0};
 
 	let state = "start"
 
-	player = new GameObject({x:canvas.width/2 + 175});
+	player = new GameObject({x:canvas.width/2 + 325});
 
 	platform0 = new GameObject();
-		platform0.width = canvas.width
+		platform0.width = canvas.width;
         platform0.height = 20;
 		platform0.x = platform0.width/2;
-		platform0.y = player.y +player.height/2 + platform0.height/2 + 175;
+		platform0.y = player.y +player.height/2 + platform0.height/2 + 275;
 		platform0.color = "#244968";
 		
-	
-	platform1 = new GameObject();
-		platform1.width = 575;
-		platform1.x = canvas.width -platform1.width/2;
-		platform1.y = player.y +player.height/2 + platform1.height/2;
-		platform1.color = "#66ff33";
 
-    demon = new GameObject({x:150, color:"#e04a6f"});
+	platform1 = new GameObject();
+		platform1.width = 325;
+        platform1.height = 20;
+		platform1.x = platform0.width/2 - 300;
+		platform1.y = player.y +player.height/2 + platform0.height/2 + 75;
+		platform1.color = "#244968";
+		
+	platform2 = new GameObject();
+		platform2.width = 325;
+        platform2.height = 20;
+		platform2.x = platform0.width/2 + 300;
+		platform2.y = player.y +player.height/2 + platform0.height/2 + 75;
+		platform2.color = "#244968";
+
+	platform3 = new GameObject();
+		platform3.width = 525;
+        platform3.height = 20;
+		platform3.x = platform0.width/2 + 275;
+		platform3.y = player.y +player.height/2 + platform0.height/2 - 100;
+		platform3.color = "#244968";
+		
+	platform5 = new GameObject();
+		platform5.width = 395;
+        platform5.height = 20;
+		platform5.x = platform0.width/2 - 375;
+		platform5.y = player.y +player.height/2 + platform0.height/2 - 175;
+		platform5.color = "#244968";
+
+	platform6 = new GameObject();
+		platform6.width = 125;
+        platform6.height = 20;
+		platform6.x = platform0.width/2 + 95;
+		platform6.y = player.y +player.height/2 + platform0.height/2 - 325;
+		platform6.color = "#244968";
+		
+
+
+
+    demon = new GameObject({x:canvas.width/2 - 325, color:"#e04a6f"});
 		
 	
 	goal = new GameObject({width:24, height:50, x:platform1.x + 100, y:platform1.y-100, color:"#00ffff"});
@@ -155,6 +187,36 @@ function animate()
 		player.vy = 0;
 		player.canJump = true;
 	}
+	while(platform1.hitTestPoint(player.bottom()) && player.vy >=0)
+	{
+		player.y--;
+		player.vy = 0;
+		player.canJump = true;
+	}
+	while(platform2.hitTestPoint(player.bottom()) && player.vy >=0)
+	{
+		player.y--;
+		player.vy = 0;
+		player.canJump = true;
+	}
+	while(platform3.hitTestPoint(player.bottom()) && player.vy >=0)
+	{
+		player.y--;
+		player.vy = 0;
+		player.canJump = true;
+	}
+	while(platform5.hitTestPoint(player.bottom()) && player.vy >=0)
+	{
+		player.y--;
+		player.vy = 0;
+		player.canJump = true;
+	}
+	while(platform6.hitTestPoint(player.bottom()) && player.vy >=0)
+	{
+		player.y--;
+		player.vy = 0;
+		player.canJump = true;
+	}
 	while(platform0.hitTestPoint(player.left()) && player.vx <=0)
 	{
 		player.x++;
@@ -187,6 +249,31 @@ function animate()
 		demon.y--;
 		demon.vy = 0;
 	}
+	while(platform1.hitTestPoint(demon.bottom()))
+	{
+		demon.y--;
+		demon.vy = 0;
+	}
+	while(platform2.hitTestPoint(demon.bottom()))
+	{
+		demon.y--;
+		demon.vy = 0;
+	}
+	while(platform3.hitTestPoint(demon.bottom()))
+	{
+		demon.y--;
+		demon.vy = 0;
+	}
+	while(platform5.hitTestPoint(demon.bottom()))
+	{
+		demon.y--;
+		demon.vy = 0;
+	}
+	while(platform6.hitTestPoint(demon.bottom()))
+	{
+		demon.y--;
+		demon.vy = 0;
+	}
 	
 	for(var b = 0; b< bullets.length; b++) {
 
@@ -206,6 +293,11 @@ function animate()
 
 	
 	platform0.drawRect();
+	platform1.drawRect();
+	platform2.drawRect();
+	platform3.drawRect();
+	platform5.drawRect();
+	platform6.drawRect();
 
 	player.drawRect();
 	player.drawDebug();
